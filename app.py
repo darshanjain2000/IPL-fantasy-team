@@ -21,8 +21,8 @@ def get_prediction():
     elif(t1==t2):
         return ("Both teams cannot be same. Please select again.")
 
-    # result=final_data(t1,t2,city)
-    result=t1
+    result=final_data(t1,t2,city)
+#     result=t1
     return json.dumps(result)
 
 if __name__ == '__main__':
