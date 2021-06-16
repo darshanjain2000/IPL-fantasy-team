@@ -4,7 +4,9 @@ Now make calculated risk over your fantasy sport team.
 
 Get best options of players for your IPL fantasy team using data of every ball ever played in IPL (2008-2020)
 
-This python code uses pySpark, numpy and pandas majorly to find out various best players in different situation such as venue, opposite team, toss, etc.
+This python code uses pySpark, numpy and pandas majorly to find out various best players in different situation such as venue, opposite team, toss, pitch stats, etc.
+
+In tool, plotted some graph for quick glance.
 
 # API
 use localhost as endpoint
