@@ -9,7 +9,13 @@ This python code uses pySpark, numpy and pandas majorly to find out various best
 # API
 use localhost as endpoint
 
-for using api there is 3 field team1 team2 and city range from 1-8, 1-8, 1-32 respectively
+for using api there is 3 field team1 team2 and city range from 1-8, 1-8, 1-31 respectively
+
+value associated with no. -
+
+ipl_teams = ["Chennai Super Kings","Delhi Capitals","Kolkata Knight Riders","Mumbai Indians","Kings XI Punjab","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]
+
+cities = ['Bangalore', 'Kochi', 'Chennai', 'Centurion', 'Ranchi', 'Mumbai', 'Ahmedabad', 'Durban', 'Kolkata', 'Cape Town', 'Dharamsala', 'Sharjah', 'Johannesburg', 'Kimberley', 'Pune', 'Delhi', 'Raipur', 'Chandigarh', 'Nagpur', 'Abu Dhabi', 'Bloemfontein', 'Kanpur', 'Hyderabad', 'Rajkot', 'Port Elizabeth', 'Dubai', 'Indore', 'Cuttack', 'East London', 'Jaipur', 'Visakhapatnam']
 
 sample call
 
