@@ -1,8 +1,16 @@
-# from typing_extensions import final
-from flask import Flask, json, request
+from flask import Flask, json, request,redirect
 from logic import final_data
 
 api = Flask(__name__)
+
+@api.route('/')
+def default():
+#     return redirect('/index')
+    return 'This is for api only, use format-  /predict?team1=1&team2=2&city=3 '
+
+# @api.route('/index')
+# def index():
+#     return 'its redirected'
 
 @api.route('/predict', methods=['GET'])
 
@@ -22,7 +30,8 @@ def get_prediction():
         return ("Both teams cannot be same. Please select again.")
 
     result=final_data(t1,t2,city)
-#     result=t1
+    # result=t1
+    print(result)
     return json.dumps(result)
 
 if __name__ == '__main__':
