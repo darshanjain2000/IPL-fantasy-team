@@ -1,5 +1,5 @@
-# import findspark
-# findspark.init()
+import findspark
+findspark.init()
 import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
@@ -8,7 +8,10 @@ from pyspark.sql.functions import col,array_contains,udf,desc
 import pandas as pd
 import numpy as np
 import datetime
+
 # from matplotlib import pyplot as plt
+import numpy as np
+
 
 spark = SparkSession.builder.appName('IPL Pre-Match Analysis').getOrCreate()
 
@@ -240,15 +243,13 @@ def top_players_venue(matches,team):
     
     return top_bat, top_bowl
 
-# ----------------------------------------------------------------------------
-
 def final_data(t1,t2,c_inp):
 
-    result={}
-    
-    # t1=int(t1)
-    # t2=int(t2)
-    # c_inp=int(c_inp)
+    result={'stats':None,
+           'players':None,
+           'toss':None,
+           'city analysis':None,
+           'run rate':None}
 
         
     team1 = ipl_teams[t1-1]
@@ -262,26 +263,15 @@ def final_data(t1,t2,c_inp):
     venue, ven_count = Venue_Stats(city)
     venueMatchesID = venue_id(venue)
 
-# print("\nPlease select the information you desire:")
-
-# print("\nA. "+team1+" Vs "+team2+" Statistics")
-# print("B. Key Players in "+team1+" Vs "+team2)
-# print("C. Toss Win Analysis at "+city)
-# print("D. Match Win Toss Analysis at "+city)
-# print("E. Run-Rate at "+city)
-# print("F. Key Players at "+city)
-# print("G. "+team1+" Statistics at "+city)
-# print("H. "+team2+" Statistics at "+city)
-# print("I. "+team1+" Run-Rate at "+city)
-# print("J. "+team2+" Run-Rate at "+city)
-
     for menu in option:
         if(menu == "a" or menu == "A"):
             
             h2h,total_matches,h2h_wins = head_to_head(team1,team2)
             
-            temp1= team1+" Vs "+team2+" Statistics"
-            result[temp1]={"total matches":total_matches,"head 2 head wins":h2h_wins}
+#             temp1= team1+" Vs "+team2+" Statistics"
+            h2h_wins=h2h_wins.toPandas()
+            h2h_wins=h2h_wins.to_json()
+            result['stats']={"total matches":total_matches,"head 2 head wins":h2h_wins} #
             
         elif(menu == "b" or menu =="B"):
             
@@ -289,24 +279,32 @@ def final_data(t1,t2,c_inp):
                             
             key_players = Key_Players(team1,team2,h2h)
             
-            temp2 = "Key Players in "+team1+" Vs "+team2
-            result[temp2]={"key players":key_players}
+#             temp2 = "Key Players in "+team1+" Vs "+team2
+            key_players=key_players.toPandas()
+            key_players=key_players.to_json()
+            result['players']={"key players":key_players} #
             
         elif(menu == "c" or menu == "C"):
             
             toss_match_win_count, tmw_decision = Toss_Winner_Stats(venue)
             
             
-            temp3 = "Toss Win Analysis at "+city
-            result[temp3]={'total match win count':toss_match_win_count,'total match win decision' :tmw_decision}
+#             temp3 = "Toss Win Analysis at "+city
+            tmw_decision=tmw_decision.toPandas()
+            tmw_decision=tmw_decision.to_json()
+            result['toss']={'total match win count':toss_match_win_count,'total match win decision' :tmw_decision} #
             
         elif(menu == "d" or menu == "D"):
+            continue
             
             
             match_win_decision = Match_Win_Toss(venue)
             
-            temp4 = "Match Win Toss Analysis at "+city
-            result[temp4]={'match win decision': match_win_decision}
+#             temp4 = "Match Win Toss Analysis at "+city
+            match_win_decision=match_win_decision.toPandas()
+            atch_win_decision=match_win_decision.to_json()
+            result['city analysis']={'match win decision': match_win_decision} #
+    
             
         elif(menu == "e" or menu == "E"):
             
@@ -316,7 +314,6 @@ def final_data(t1,t2,c_inp):
             
             mean = round(sum(rr_venue)/len(rr_venue),2)
                 
-            temp4 =  "Run-Rate at "+city
-            result[temp4]={'avearge run rate in that city': mean}
-
+#             temp4 =  "Run-Rate at "+city
+            result['run rate']={'avearge run rate in that city': mean}
     return result
