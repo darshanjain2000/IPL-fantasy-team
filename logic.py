@@ -242,7 +242,6 @@ def top_players_venue(matches,team):
     top_bowl = bowler_wickets.groupby("bowler").agg(F.count('is_wicket').alias("wickets")).sort(desc("wickets"))
     
     return top_bat, top_bowl
-
 def htmlOutput(t1,t2,c_inp):
     
     team1 = ipl_teams[t1-1]
@@ -252,6 +251,7 @@ def htmlOutput(t1,t2,c_inp):
     venue, ven_count = Venue_Stats(city)
     venueMatchesID = venue_id(venue)
 
+    #call all function-------------
     
     h2h,total_matches,h2h_wins = head_to_head(team1,team2)
     
@@ -261,30 +261,55 @@ def htmlOutput(t1,t2,c_inp):
     
     match_win_decision = Match_Win_Toss(venue)
     
+    #run rate at venue
     runs,balls = venue_MatchStats(venueMatchesID)
     rr_venue = RR_Venue(venueMatchesID,runs,balls)
     mean = round(sum(rr_venue)/len(rr_venue),2)
     
+    # top batsman and wicket keeper at venue from both team
+    t1_topbat, t1_topbowl = top_players_venue(venueMatchesID,team1)    
+    t2_topbat, t2_topbowl = top_players_venue(venueMatchesID,team2)
     
+    #team wining probablity at venue (team_pc)
+    team_venue, team_total, team_venue_win, team_pc = TeamsAtVenue(venue,team1)
+    team_venue2, team_total2, team_venue_win2, team_pc2 = TeamsAtVenue(venue,team2)
+    
+    #team run rate at venue
+    team_ven_id = Teams_Venue_id(team_venue)
+    team_ven_id2 = Teams_Venue_id(team_venue2)
+    rr_team = RR_Teams(team_ven_id,team1)
+    rr_team2 = RR_Teams(team_ven_id2,team2)
+    
+    # convert spark datafrome to pandas dataframe
     h2h_wins=h2h_wins.toPandas()
     key_players=key_players.toPandas()
     tmw_decision=tmw_decision.toPandas()
     match_win_decision=match_win_decision.toPandas()
-    
-    print('h2h_wins')
-    print(h2h_wins)
-    
-    print('key_players')
-    print(key_players)
-    
-    print('tmw_decision')
-    print(tmw_decision)
-    
-    print('match_win_decision')
-    print(match_win_decision)
+    t1_topbat=t1_topbat.toPandas()
+    t1_topbowl=t1_topbowl.toPandas()
+    t2_topbat=t2_topbat.toPandas()
+    t2_topbowl=t2_topbowl.toPandas()
     
     
-    return total_matches,h2h_wins,key_players,toss_match_win_count,tmw_decision,match_win_decision,mean
+    return total_matches,h2h_wins,key_players,toss_match_win_count,\
+            tmw_decision,match_win_decision,mean,\
+            t1_topbat, t1_topbowl,t2_topbat, t2_topbowl,\
+            team_pc,team_pc2,\
+            rr_team,rr_team2
+
+    
+#     print('\ntotal matches')
+#     print(total_matches)
+#     print(type(total_matches))
+    
+#     print('\nh2h_wins') #
+#     print(h2h_wins)
+#     print(type(h2h_wins))
+    
+#     h2h_wins=h2h_wins.toPandas()
+#     print('\nh2h_wins PANDAS')##
+#     print(h2h_wins)
+#     print(type(h2h_wins))
     
 def final_data(t1,t2,c_inp):
 
