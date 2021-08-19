@@ -243,6 +243,49 @@ def top_players_venue(matches,team):
     
     return top_bat, top_bowl
 
+def htmlOutput(t1,t2,c_inp):
+    
+    team1 = ipl_teams[t1-1]
+    team2 = ipl_teams[t2-1]
+    city = cities[c_inp-1]
+
+    venue, ven_count = Venue_Stats(city)
+    venueMatchesID = venue_id(venue)
+
+    
+    h2h,total_matches,h2h_wins = head_to_head(team1,team2)
+    
+    key_players = Key_Players(team1,team2,h2h)
+    
+    toss_match_win_count, tmw_decision = Toss_Winner_Stats(venue)
+    
+    match_win_decision = Match_Win_Toss(venue)
+    
+    runs,balls = venue_MatchStats(venueMatchesID)
+    rr_venue = RR_Venue(venueMatchesID,runs,balls)
+    mean = round(sum(rr_venue)/len(rr_venue),2)
+    
+    
+    h2h_wins=h2h_wins.toPandas()
+    key_players=key_players.toPandas()
+    tmw_decision=tmw_decision.toPandas()
+    match_win_decision=match_win_decision.toPandas()
+    
+    print('h2h_wins')
+    print(h2h_wins)
+    
+    print('key_players')
+    print(key_players)
+    
+    print('tmw_decision')
+    print(tmw_decision)
+    
+    print('match_win_decision')
+    print(match_win_decision)
+    
+    
+    return total_matches,h2h_wins,key_players,toss_match_win_count,tmw_decision,match_win_decision,mean
+    
 def final_data(t1,t2,c_inp):
 
     result={'stats':None,
