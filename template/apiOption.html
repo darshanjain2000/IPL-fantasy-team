@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IPL API</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="dist/css/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+							<a href="#">
+								<!-- <img class="header-logo-image" src="dist/images/logo.svg" alt="Logo"> -->
+                                <img src="{{url_for('static',filename = 'images/logo.svg')}}" alt="Logo">
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        <h1 class="hero-title mt-0">API test on POSTMAN or call from here</h1>
+	                        <p class="hero-paragraph">Structure of api:</p>
+                            <p class="hero-paragraph">endpoint/predict?team1=1&team2=2&city=3</p>
+	                        <div class="hero-cta"><a class="button button-primary" href="/predict?team1=&team4=2&city=6" target="_blank">Call From Here</a><a class="button" href="https://web.postman.co/home" target="_blank">POSTMAN</a></div>
+						</div>
+                        <div class="feature text-center is-revealing">
+                            <div class="feature-inner">
+                                <h4 class="feature-title mt-24">Team code</h4>
+                                <ol>
+                                    <li>Chennai Super Kings</li>
+                                    <li>Delhi Capitals</li>
+                                    <li>Kolkata Knight Riders</li>
+                                    <li>Mumbai Indians</li>
+                                    <li>Kings XI Punjab</li>
+                                    <li>Rajasthan Royals</li>
+                                    <li>Royal Challengers Bangalore</li>
+                                    <li>Sunrisers Hyderabad</li>
+                                  </ol>
+                            </div>
+                        </div>
+                        <div class="feature text-center is-revealing">
+                            <div class="feature-inner">
+                                <h4 class="feature-title mt-24">Venue Code</h4>
+                                <ol>
+                                    <li>Bangalore</li>
+                                    <li>Kochi</li>
+                                    <li>Chennai</li>
+                                    <li>Centurion</li>
+                                    <li>Ranchi</li>
+                                    <li>Mumbai</li>
+                                    <li>Ahmedabad</li>
+                                    <li>Durban</li>
+                                    <li>Kolkata</li>
+                                    <li>Cape Town</li>
+                                    <li>Dharamsala</li>
+                                    <li>Sharjah</li>
+                                    <li>Johannesburg</li>
+                                    <li>Kimberley</li>
+                                    <li>Pune</li>
+                                    <!-- <li>Delhi</li>
+                                    <li>Raipur</li>
+                                    <li>Chandigarh</li>
+                                    <li>Nagpur</li>
+                                    <li>Abu Dhabi</li>
+                                    <li>Bloemfontein</li>
+                                    <li>Kanpur</li>
+                                    <li>Hyderabad</li>
+                                    <li>Rajkot</li>
+                                    <li>Port Elizabeth</li>
+                                    <li>Dubai</li>
+                                    <li>Indore</li>
+                                    <li>Cuttack</li>
+                                    <li>East London</li>
+                                    <li>Jaipur</li>
+                                    <li>Visakhapatnam</li> -->
+                                  </ol>
+                            </div>
+                        </div>
+                        <div class="feature text-center is-revealing">
+                            <div class="feature-inner">
+                                <ol start="16">
+                                    <!-- <li>Bangalore</li>
+                                    <li>Kochi</li>
+                                    <li>Chennai</li>
+                                    <li>Centurion</li>
+                                    <li>Ranchi</li>
+                                    <li>Mumbai</li>
+                                    <li>Ahmedabad</li>
+                                    <li>Durban</li>
+                                    <li>Kolkata</li>
+                                    <li>Cape Town</li>
+                                    <li>Dharamsala</li>
+                                    <li>Sharjah</li>
+                                    <li>Johannesburg</li>
+                                    <li>Kimberley</li>
+                                    <li>Pune</li> -->
+                                    <li>Delhi</li>
+                                    <li>Raipur</li>
+                                    <li>Chandigarh</li>
+                                    <li>Nagpur</li>
+                                    <li>Abu Dhabi</li>
+                                    <li>Bloemfontein</li>
+                                    <li>Kanpur</li>
+                                    <li>Hyderabad</li>
+                                    <li>Rajkot</li>
+                                    <li>Port Elizabeth</li>
+                                    <li>Dubai</li>
+                                    <li>Indore</li>
+                                    <li>Cuttack</li>
+                                    <li>East London</li>
+                                    <li>Jaipur</li>
+                                    <li>Visakhapatnam</li>
+                                  </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- <script src="dist/js/main.min.js"></script> -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
