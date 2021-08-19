@@ -3,6 +3,8 @@ from flask import Flask, json, request,redirect,render_template
 
 api=Flask(__name__,template_folder='template')
 
+ipl_teams = ["Chennai Super Kings","Delhi Capitals","Kolkata Knight Riders","Mumbai Indians","Kings XI Punjab","Rajasthan Royals","Royal Challengers Bangalore","Sunrisers Hyderabad"]
+cities = ['Bangalore', 'Kochi', 'Chennai', 'Centurion', 'Ranchi', 'Mumbai', 'Ahmedabad', 'Durban', 'Kolkata', 'Cape Town', 'Dharamsala', 'Sharjah', 'Johannesburg', 'Kimberley', 'Pune', 'Delhi', 'Raipur', 'Chandigarh', 'Nagpur', 'Abu Dhabi', 'Bloemfontein', 'Kanpur', 'Hyderabad', 'Rajkot', 'Port Elizabeth', 'Dubai', 'Indore', 'Cuttack', 'East London', 'Jaipur', 'Visakhapatnam']
 
 @api.route('/')
 def default():
@@ -20,9 +22,13 @@ def webTool():
     if(t1==t2):
         return ("Both teams cannot be same. Please do it again.")
     
-    total_matches,h2h_wins,key_players,toss_match_win_count,tmw_decision,match_win_decision,mean = htmlOutput(t1,t2,city)
+    # assign value to variable from function calls parent function
+    total_matches, h2h_wins, key_players, toss_match_win_count, tmw_decision,\
+    match_win_decision, mean, t1_topbat, t1_topbowl, t2_topbat, t2_topbowl,\
+    team_pc,team_pc2,rr_team,rr_team2\
+    = htmlOutput(t1,t2,city)
     
-    return render_template('webTool.html',
+    return render_template('webTool.html',team1=ipl_teams[t1-1],team2=ipl_teams[t2-1],venue=cities[city-1],
                            total_matches=total_matches,
                            
 #                            h2h_wins=h2h_wins,
@@ -39,7 +45,18 @@ def webTool():
 #                            match_win_decision=match_win_decision,
                            tables4=[match_win_decision.to_html(classes='data')], titles4=match_win_decision.columns.values,
                            
-                           runrate=mean)
+                           runrate=mean,
+                           
+                           tables5=[t1_topbat.to_html(classes='data')], titles5=t1_topbat.columns.values,
+                           tables6=[t1_topbowl.to_html(classes='data')], titles6=t1_topbowl.columns.values,
+                           tables7=[t2_topbat.to_html(classes='data')], titles7=t2_topbat.columns.values,
+                           tables8=[t2_topbowl.to_html(classes='data')], titles8=t2_topbowl.columns.values,
+                           
+                           team_pc=team_pc,
+                           team_pc2=team_pc2,
+                           
+                           rr_team=rr_team,
+                           rr_team2=rr_team2)
 
 @api.route('/api')
 def apiOption():
