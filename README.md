@@ -1,4 +1,4 @@
-# IPL fantasy team assistant tool and API
+# IPL fantasy team assistant Web Tool and API
 
 Now make calculated risk over your fantasy sport team.
 
