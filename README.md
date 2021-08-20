@@ -9,7 +9,7 @@ This python code uses pySpark, numpy and pandas majorly to find out various best
 In tool, plotted some graph for quick glance.
 
 # Analysis Attributes
-1.Total Matches team1 vs team2
+1.Total Matches team1 vs team2\n
 2.Head to head wins
 3.Key players in team1 vs team2
 4.Toss winner choice at venue
