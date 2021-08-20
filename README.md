@@ -9,19 +9,19 @@ This python code uses pySpark, numpy and pandas majorly to find out various best
 In tool, plotted some graph for quick glance.
 
 # Analysis Attributes
-1.Total Matches team1 vs team2\n
-2.Head to head wins
-3.Key players in team1 vs team2
-4.Toss winner choice at venue
-5.Match winner toss decision team1 vs team2
-6.Match winner toss decision at venue
-7.Run rate at venue
-8.Team1 top run-scorer at venue
-9.Team1 top wicket-taker at venue
-10.Team2 top run-scorer at venue
-11.Team2 top wicket-taker at venue
-12.Team1 win percentage at venue
-13.Team2 win percentage at venue
+1.Total Matches team1 vs team2 <br/>
+2.Head to head wins<br/>
+3.Key players in team1 vs team2<br/>
+4.Toss winner choice at venue<br/>
+5.Match winner toss decision team1 vs team2<br/>
+6.Match winner toss decision at venue<br/>
+7.Run rate at venue<br/>
+8.Team1 top run-scorer at venue<br/>
+9.Team1 top wicket-taker at venue<br/>
+10.Team2 top run-scorer at venue<br/>
+11.Team2 top wicket-taker at venue<br/>
+12.Team1 win percentage at venue<br/>
+13.Team2 win percentage at venue<br/>
 
 
 # API
