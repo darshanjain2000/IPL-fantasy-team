@@ -1,4 +1,4 @@
-# from logic import final_data,htmlOutput
+from logic import final_data,htmlOutput
 from flask import Flask, json, request,redirect,render_template
 
 api=Flask(__name__,template_folder='template')

@@ -280,7 +280,7 @@ def htmlOutput(t1,t2,c_inp):
     rr_team = RR_Teams(team_ven_id,team1)
     rr_team2 = RR_Teams(team_ven_id2,team2)
     
-    # convert spark datafrome to pandas dataframe
+    # convert spark dataframe to pandas dataframe
     h2h_wins=h2h_wins.toPandas()
     key_players=key_players.toPandas()
     tmw_decision=tmw_decision.toPandas()
