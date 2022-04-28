@@ -243,7 +243,11 @@ def top_players_venue(matches,team):
     
     return top_bat, top_bowl
 def htmlOutput(t1,t2,c_inp):
-    
+
+    t1=ipl_teams.index(t1)
+    t2=ipl_teams.index(t2)
+    c_inp=cities.index(c_inp)
+
     team1 = ipl_teams[t1-1]
     team2 = ipl_teams[t2-1]
     city = cities[c_inp-1]
@@ -284,7 +288,8 @@ def htmlOutput(t1,t2,c_inp):
     h2h_wins=h2h_wins.toPandas()
     key_players=key_players.toPandas()
     tmw_decision=tmw_decision.toPandas()
-    match_win_decision=match_win_decision.toPandas()
+    # match_win_decision=match_win_decision.toPandas()
+    match_win_decision=h2h_wins
     t1_topbat=t1_topbat.toPandas()
     t1_topbowl=t1_topbowl.toPandas()
     t2_topbat=t2_topbat.toPandas()

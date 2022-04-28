@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Flask App",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/app.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            // "env": {
+            //     // "Env": "Dev.local"
+            //     "Env": "Prod.local"
+            // }
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
