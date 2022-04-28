@@ -6,7 +6,7 @@
 	<form method="post" class="form-row" action="/predict">
 		<div class="row">
 			<div class="col-lg-6 col-sm-12">
-				<label for="venue">Select Venue *
+				<label for="venue">Select Venue
 					<select name="venue" class="btn btn-light btn-toolbar">
 						{% for venue in venues %}
 						<option value="{{venue}}">{{venue}}</option>
@@ -15,7 +15,7 @@
 				</label>
 			</div>
 			<div class="col-lg-6 col-sm-12">
-				<label for="batting_team">Batting Team *
+				<label for="batting_team">Batting Team
 					<select name="batting_team" class="btn btn-light btn-toolbar">
 						{% for team in teams %}
 						<option value="{{team}}">{{team}}</option>
@@ -24,7 +24,7 @@
 				</label>
 			</div>
 			<div class="col-lg-6 col-sm-12">
-				<label for="bowling_team">Bowling Team *
+				<label for="bowling_team">Bowling Team
 					<select name="bowling_team" class="btn btn-light btn-toolbar">
 						{% for team in teams %}
 						<option value="{{team}}">{{team}}</option>
@@ -85,8 +85,8 @@
 				</label>
 			</div> -->
 			<div class="col-lg-6 col-sm-12">
-				<label for="model">Model Algorithm
-					<!-- <label for="model">Model Algorithm <a href="#" data-toggle="modal" data-target="#info" class="badge badge-info badge-pill">see details</a> -->
+				<label for="model">Model Algorithm 
+				<!-- <label for="model">Model Algorithm <a href="#" data-toggle="modal" data-target="#info" class="badge badge-info badge-pill">see details</a> -->
 					<select name="model" class="btn btn-light btn-toolbar">
 						{% for model in models %}
 						<option value="{{model}}">{{model}}</option>
@@ -98,21 +98,8 @@
 			<div class="col-12">
 				<input required type="submit" class="btn btn-success" value="Predict Result">
 			</div>
-			<div class="col-12">
-				<input required type="submit" class="btn btn-success" value="View Analysis Data *"
-					formaction="/analyze">
-			</div>
 		</div>
 	</form>
-</div>
-<div class="card-body text-center">
-	<h4 class="card-title">Developers Zone</h4>
-	<div>
-		<a class="button button-primary" href="https://github.com/darshanjain2000/IPL-fantasy-team"target="_blank">GitHub</a>
-	</div>
-	<div>
-		<a class="button" href="/apiOptionPage" target="_blank">API</a>
-	</div>
 </div>
 
 <!-- <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-hidden="true">

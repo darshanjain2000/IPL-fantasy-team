@@ -175,7 +175,7 @@ def index():
 
 @app.route('/newTeam')
 def indexNewTeam():
-	return render_template('index1.html', teams=TEAM_CODE_new_team, venues =VENUE_CODE_new_team, toss_winners = TOSS_WINNER_new_team,toss_decisions = TOSS_DECISION , models=MODELS, score=predicted_score, info=MODEL_INFO)
+	return render_template('indexNew.html', teams=TEAM_CODE_new_team, venues =VENUE_CODE_new_team, toss_winners = TOSS_WINNER_new_team,toss_decisions = TOSS_DECISION , models=MODELS, score=predicted_score, info=MODEL_INFO)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def prediction():
@@ -224,20 +224,20 @@ def webTool():
     team_pc,team_pc2,rr_team,rr_team2\
     = htmlOutput(t1,t2,venue)
     
-    return render_template('webTool.html',
+    return render_template('webTool.html', h2h_wins=h2h_wins,key_players=key_players,tmw_decision=tmw_decision,
 							# team1=ipl_teams[t1-1],team2=ipl_teams[t2-1],venue=cities[city-1],total_matches=total_matches,
 							team1=t1,team2=t2,venue=venue,total_matches=total_matches,
     
 #                            h2h_wins=h2h_wins,
-                           tables1=[h2h_wins.to_html(classes='data')], titles1=h2h_wins.columns.values,
+                        #    tables1=[h2h_wins.to_html(classes='data')], titles1=h2h_wins.columns.values,
                            
 #                            key_players=key_players,
-                           tables2=[key_players.to_html(classes='data')], titles2=key_players.columns.values,
+                        #    tables2=[key_players.to_html(classes='data')], titles2=key_players.columns.values,
                            
                            toss_match_win_count=toss_match_win_count,
                            
 #                            tmw_decision=tmw_decision,
-                           tables3=[tmw_decision.to_html(classes='data')], titles3=tmw_decision.columns.values,
+                        #    tables3=[tmw_decision.to_html(classes='data')], titles3=tmw_decision.columns.values,
                            
 #                            match_win_decision=match_win_decision,
                            tables4=[match_win_decision.to_html(classes='data')], titles4=match_win_decision.columns.values,

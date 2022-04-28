@@ -286,8 +286,11 @@ def htmlOutput(t1,t2,c_inp):
     
     # convert spark dataframe to pandas dataframe
     h2h_wins=h2h_wins.toPandas()
+    # h2h_wins=[ [h2h_wins['winner'][0], h2h_wins['count'][0]], [h2h_wins['winner'][1], h2h_wins['count'][1]]]
     key_players=key_players.toPandas()
+    # key_players = [ [key_players['player_of_match'][0],key_players['points'][0]],[key_players['player_of_match'][1],key_players['points'][1]],[key_players['player_of_match'][2],key_players['points'][2]],[key_players['player_of_match'][3],key_players['points'][3]],[key_players['player_of_match'][4],key_players['points'][4]],[key_players['player_of_match'][5],key_players['points'][5]]  ]
     tmw_decision=tmw_decision.toPandas()
+    # tmw_decision = [ ["Fielding",tmw_decision['count'][0]],["Batting",tmw_decision['count'][1]]  ]
     # match_win_decision=match_win_decision.toPandas()
     match_win_decision=h2h_wins
     t1_topbat=t1_topbat.toPandas()
