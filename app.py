@@ -2,7 +2,8 @@ from logic import final_data,htmlOutput
 from flask import Flask, render_template, url_for, request, redirect, json
 from utilities import predict
 from utilities.predict import predict_score
-from utilities.predict import tree, forest, neural_nets
+# from utilities.predict import tree, forest, neural_nets
+from utilities.predict import tree
 from utilities.predict import MODEL_INFO
 
 
@@ -83,9 +84,9 @@ TOSS_DECISION = [
 			 ]
 
 MODELS = {
-	'Random Forest Regressor' : forest,
-	'Decision Tree Regressor' : tree,
-	'Neural Networks Regression' : neural_nets
+	# 'Random Forest Regressor' : forest,
+	'Decision Tree Classifier' : tree,
+	# 'Neural Networks Regression' : neural_nets
 }
 
 TEAM_CODE_new_team = [
