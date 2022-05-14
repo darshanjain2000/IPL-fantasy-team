@@ -9,17 +9,17 @@
 
 <div class="card-body text-center">
     <h4 class="card-title">Key Players</h4>
-    <div id="container" style="width: 50%; height: 400px;"></div>
+    <div id="container" style="width: 50%; height: 400px; margin-left: 250px "></div>
     <script>
         anychart.onDocumentReady(function () {
 
             // create data
             var data = [
-                ["John", 10000],
-                ["Jake", 12000],
-                ["Peter", 13000],
-                ["James", 10000],
-                ["Mary", 9000]
+                ["KA Pollard", 3],
+                ["RG Sharma", 3],
+                ["SK Raina", 3],
+                ["HH Pandya", 2],
+                ["SA Yadav", 1]
             ];
 
             // create a chart
@@ -32,8 +32,8 @@
             chart.title("Column Chart: Basic Sample");
 
             // set the titles of the axes
-            chart.xAxis().title("Manager");
-            chart.yAxis().title("Sales, $");
+            chart.xAxis().title("Player");
+            chart.yAxis().title("Points");
 
             // set the container id
             chart.container("container");
@@ -57,14 +57,14 @@
 
 <div class="card-body text-center">
     <h4 class="card-title">Toss Match Win Decision</h4>
-    <div id="containerToss" style="width: 50%; height: 400px;"></div>
+    <div id="containerToss" style="width: 50%; height: 400px; margin-left: 250px "></div>
     <script>
 
         anychart.onDocumentReady(function () {
           // create pie chart with passed data
           var chart = anychart.pie3d([
-            ['Fielding', 3],
-            ['Batting', 1]
+            ['Fielding', 35],
+            ['Batting', 18]
           ]);
     
           // set chart title text settings
@@ -80,7 +80,7 @@
         });
       
     </script>
-    <table style="width:50%; margin-left: 25%;">
+    <!-- <table style="width:50%; margin-left: 25%;">
         <tr>
             <th>Toss Match Win Decision</th>
             <td>{% for table in tables3 %}
@@ -88,67 +88,24 @@
                 {{ table|safe }}
                 {% endfor %}</td>
         </tr>
-    </table>
-</div>
-
-<div class="card-body text-center">
-    <h4 class="card-title">Match Win Decision</h4>
-    <div id="containerMatch" style="width: 50%; height: 400px;"></div>
-    <script>
-        anychart.onDocumentReady(function () {
-
-            // create data
-            var data = [
-                ["Team1", 7],
-                ["Team2", 12]
-            ];
-
-            // create a chart
-            var chart = anychart.column();
-
-            // create a column series and set the data
-            var series = chart.column(data);
-
-            // set the chart title
-            chart.title("Match Win Decision");
-
-            // set the titles of the axes
-            chart.xAxis().title("Winner");
-            chart.yAxis().title("Count");
-
-            // set the container id
-            chart.container("containerMatch");
-
-            // initiate drawing the chart
-            chart.draw();
-        });
-    </script>
-    <table style="width:50%; margin-left: 25%;">
-        <tr>
-            <th>Match Win Decision</th>
-            <td>{% for table in tables4 %}
-                {{titles4[loop.index]}}
-                {{ table|safe }}
-                {% endfor %}</td>
-        </tr>
-    </table>
+    </table> -->
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">Top Batsman in {{team1}}</h4>
-    <div id="containerTopBat1" style="width: 50%; height: 400px;"></div>
+    <div id="containerTopBat1" style="width: 50%; height: 400px; margin-left: 250px "></div>
     <script>
 
         anychart.onDocumentReady(function () {
           // create pie chart with passed data
           var chart = anychart.pie3d([
-            ['Batsman 1 ', 1],
-            ['BatsMan2', 1]
+            ['RG Sharma ', 1765],
+            ['KA Pollard', 1444]
           ]);
     
           // set chart title text settings
           chart
-            .title('Population in The Shire')
+            .title('Top batsman')
             // set chart radius
             .radius('43%');
     
@@ -159,7 +116,7 @@
         });
       
     </script>
-    <table style="width:50%; margin-left: 25%;">
+    <!-- <table style="width:50%; margin-left: 25%;">
         <tr>
             <th>Top Batsman in {{team1}}</th>
             <td>{% for table in tables5 %}
@@ -167,20 +124,19 @@
                 {{ table|safe }}
                 {% endfor %}</td>
         </tr>
-    </table>
+    </table> -->
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">Top Bowler in {{team1}}</h4>
-    <div id="containerBowl1" style="width: 50%; height: 400px;"></div>
+    <div id="containerBowl1" style="width: 50%; height: 400px; margin-left: 250px "></div>
     <script>
         anychart.onDocumentReady(function () {
 
             // create data
             var data = [
-                ["Bowler1", 4],
-                ["Bowler2", 2],
-                ["Bowler3", 1]
+                ["JJ Bumrah", 35],
+                ["KA pollard", 28]
             ];
 
             // create a chart
@@ -203,7 +159,7 @@
             chart.draw();
         });
     </script>
-    <table style="width:50%; margin-left: 25%;">
+    <!-- <table style="width:50%; margin-left: 25%;">
         <tr>
             <th>Top Bowler in {{team1}}</th>
             <td>{% for table in tables6 %}
@@ -211,20 +167,20 @@
                 {{ table|safe }}
                 {% endfor %}</td>
         </tr>
-    </table>
+    </table> -->
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">Top Batsman in {{team2}}</h4>
-    <div id="containerTopBat2" style="width: 50%; height: 400px;"></div>
+    <div id="containerTopBat2" style="width: 50%; height: 400px; margin-left: 250px "></div>
     <script>
 
         anychart.onDocumentReady(function () {
           // create pie chart with passed data
         //   anychart.theme('darkEarth');
           var chart = anychart.pie3d([
-            ['Batsman 1 ', 1],
-            ['BatsMan2', 1]
+            ['SK Raina ', 691],
+            ['MS Dhoni', 284]
           ]);
     
           // set chart title text settings
@@ -240,7 +196,7 @@
         });
       
     </script>
-    <table style="width:50%; margin-left: 25%;">
+    <!-- <table style="width:50%; margin-left: 25%;">
         <tr>
             <th>Top Batsman in {{team2}}</th>
             <td>{% for table in tables7 %}
@@ -248,20 +204,19 @@
                 {{ table|safe }}
                 {% endfor %}</td>
         </tr>
-    </table>
+    </table> -->
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">Top Bowler in {{team2}}</h4>
-    <div id="containerBowl2" style="width: 50%; height: 400px;"></div>
+    <div id="containerBowl2" style="width: 50%; height: 400px; margin-left: 250px "></div>
     <script>
         anychart.onDocumentReady(function () {
 
             // create data
             var data = [
-                ["Bowler1", 4],
-                ["Bowler2", 2],
-                ["Bowler3", 1]
+                ["DJ Bravo", 13],
+                ["RA Jadeja", 11]
             ];
 
             // create a chart
@@ -284,7 +239,7 @@
             chart.draw();
         });
     </script>
-    <table style="width:50%; margin-left: 25%;">
+    <!-- <table style="width:50%; margin-left: 25%;">
         <tr>
             <th>Top Bowler in {{team2}}</th>
             <td>{% for table in tables8 %}
@@ -292,8 +247,52 @@
                 {{ table|safe }}
                 {% endfor %}</td>
         </tr>
-    </table>
+    </table> -->
 </div>
+
+<div class="card-body text-center">
+    <h4 class="card-title">Match Win Decision</h4>
+    <div id="containerMatch" style="width: 50%; height: 400px; margin-left: 250px "></div>
+    <script>
+        anychart.onDocumentReady(function () {
+
+            // create data
+            var data = [
+                ["Mumbai Indians", 7],
+                ["Chennai Super Kings", 12]
+            ];
+
+            // create a chart
+            var chart = anychart.column();
+
+            // create a column series and set the data
+            var series = chart.column(data);
+
+            // set the chart title
+            chart.title("Match Win Decision");
+
+            // set the titles of the axes
+            chart.xAxis().title("Winner");
+            chart.yAxis().title("Count");
+
+            // set the container id
+            chart.container("containerMatch");
+
+            // initiate drawing the chart
+            chart.draw();
+        });
+    </script>
+    <!-- <table style="width:50%; margin-left: 25%;">
+        <tr>
+            <th>Match Win Decision</th>
+            <td>{% for table in tables4 %}
+                {{titles4[loop.index]}}
+                {{ table|safe }}
+                {% endfor %}</td>
+        </tr>
+    </table> -->
+</div>
+
 
 <div class="card-body text-center">
     <h4 class="card-title">Run Rate</h4>

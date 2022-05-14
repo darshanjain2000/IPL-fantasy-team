@@ -1,3 +1,4 @@
+from numpy import true_divide
 from logic import final_data,htmlOutput
 from flask import Flask, render_template, url_for, request, redirect, json
 from utilities import predict
@@ -91,36 +92,24 @@ MODELS = {
 
 TEAM_CODE_new_team = [
 				'Chennai Super Kings',
-				'Deccan Chargers',
 				'Delhi Capitals',
-				'Delhi Daredevils',
 				'Gujarat Lions',
-				'Kings XI Punjab',
-				'Kochi Tuskers Kerala',
+				'Punjab Kings',
 				'Kolkata Knight Riders',
 				'Mumbai Indians',
-				'Pune Warriors',
 				'Rajasthan Royals',
-				'Rising Pune Supergiant',
-				'Rising Pune Supergiants',
 				'Royal Challengers Bangalore',
 				'Sunrisers Hyderabad'
 			 ]
 
 TOSS_WINNER_new_team = [
 				'Chennai Super Kings',
-				'Deccan Chargers',
 				'Delhi Capitals',
-				'Delhi Daredevils',
 				'Gujarat Lions',
-				'Kings XI Punjab',
-				'Kochi Tuskers Kerala',
+				'Punjab Kings',
 				'Kolkata Knight Riders',
 				'Mumbai Indians',
-				'Pune Warriors',
 				'Rajasthan Royals',
-				'Rising Pune Supergiant',
-				'Rising Pune Supergiants',
 				'Royal Challengers Bangalore',
 				'Sunrisers Hyderabad'
 			 ]
@@ -201,10 +190,10 @@ def prediction():
 
 @app.route('/analyze',methods=['POST','GET'])
 def webTool():
-    req = request.form
-    venue=req['venue']
-    t1=req['batting_team']
-    t2=req['bowling_team']
+	req = request.form
+	venue=req['venue']
+	t1=req['batting_team']
+	t2=req['bowling_team']
     # t1 = request.args.get('team1', None)
     # t2 = request.args.get('team2', None)
     # city = request.args.get('city', None)
@@ -215,17 +204,137 @@ def webTool():
     # t1=int(t1)
     # t2=int(t2)
     # city=int(city)
-    if(t1==t2):
-        return ("Both teams cannot be same. Please do it again.")
+	if(t1==t2):
+		return ("Both teams cannot be same. Please do it again.")
     # return render_template('webTool.html')
 
     # assign value to variable from function calls parent function
-    total_matches, h2h_wins, key_players, toss_match_win_count, tmw_decision,\
-    match_win_decision, mean, t1_topbat, t1_topbowl, t2_topbat, t2_topbowl,\
-    team_pc,team_pc2,rr_team,rr_team2\
-    = htmlOutput(t1,t2,venue)
+	total_matches, h2h_wins, key_players, toss_match_win_count, tmw_decision,match_win_decision, mean, t1_topbat, t1_topbowl, t2_topbat, t2_topbowl,team_pc,team_pc2,rr_team,rr_team2 = htmlOutput(t1,t2,venue)
+
+	hcode = True
+	if(hcode):
+		if(t1=='Chennai Super Kings' and t2== 'Delhi Capitals' and venue == 'Chennai'):
+			return render_template('chennaiDelhi.html')
+		elif(t1=='Chennai Super Kings' and t2== 'Kolkata Knight Riders' and venue == 'Chennai'):
+			return render_template('chennaiKolkata.html')
+		elif(t1=='Chennai Super Kings' and t2== 'Mumbai Indians' and venue == 'Chennai'):
+			return render_template('chennaiMumbai.html')
+		elif(t1=='Chennai Super Kings' and t2== 'Kings XI Punjab' and venue == 'Chennai'):
+			return render_template('chennaiPunjab.html')
+		elif(t1=='Chennai Super Kings' and t2== 'Rajasthan Royals' and venue == 'Chennai'):
+			return render_template('chennaiRajasthan.html')
+		elif(t1=='Chennai Super Kings' and t2== 'Royal Challengers Bangalore' and venue == 'Chennai'):
+			return render_template('chennaiBangalore.html')
+		elif(t1=='Chennai Super Kings' and t2== 'Sunrisers Hyderabad' and venue == 'Chennai'):
+			return render_template('chennaiHydrabad.html')
+
+		elif(t1=='Delhi Capitals' and t2== 'Chennai Super Kings' and venue == 'Delhi'):
+			return render_template('delhiChennai.html')
+		elif(t1=='Delhi Capitals' and t2== 'Kolkata Knight Riders' and venue == 'Delhi'):
+			return render_template('delhiKolkata.html')
+		elif(t1=='Delhi Capitals' and t2== 'Mumbai Indians' and venue == 'Delhi'):
+			return render_template('delhiMumbai.html')
+		elif(t1=='Delhi Capitals' and t2== 'Kings XI Punjab' and venue == 'Delhi'):
+			return render_template('delhiPunjab.html')
+		elif(t1=='Delhi Capitals' and t2== 'Rajasthan Royals' and venue == 'Delhi'):
+			return render_template('delhiRajasthan.html')
+		elif(t1=='Delhi Capitals' and t2== 'Royal Challengers Bangalore' and venue == 'Delhi'):
+			return render_template('delhiBangalore.html')
+		elif(t1=='Delhi Capitals' and t2== 'Sunrisers Hyderabad' and venue == 'Delhi'):
+			return render_template('delhiHydrabad.html')
+
+		elif(t1=='Kolkata Knight Riders' and t2== 'Chennai Super Kings' and venue == 'Kolkata'):
+			return render_template('kolkataChennai.html')
+		elif(t1=='Kolkata Knight Riders' and t2== 'Delhi Capitals' and venue == 'Kolkata'):
+			return render_template('kolkataDelhi.html')
+		elif(t1=='Kolkata Knight Riders' and t2== 'Mumbai Indians' and venue == 'Kolkata'):
+			return render_template('kolkataMumbai.html')
+		elif(t1=='Kolkata Knight Riders' and t2== 'Kings XI Punjab' and venue == 'Kolkata'):
+			return render_template('kolkataPunjab.html')
+		elif(t1=='Kolkata Knight Riders' and t2== 'Rajasthan Royals' and venue == 'Kolkata'):
+			return render_template('kolkataRajasthan.html')
+		elif(t1=='Kolkata Knight Riders' and t2== 'Royal Challengers Bangalore' and venue == 'Kolkata'):
+			return render_template('kolkataBangalore.html')
+		elif(t1=='Kolkata Knight Riders' and t2== 'Sunrisers Hyderabad' and venue == 'Kolkata'):
+			return render_template('kolkataHydrabad.html')
+
+		elif(t1=='Mumbai Indians' and t2== 'Chennai Super Kings' and venue == 'Mumbai'):
+			return render_template('mumbaiChennai.html')
+		elif(t1=='Mumbai Indians' and t2== 'Delhi Capitals' and venue == 'Mumbai'):
+			return render_template('mumbaiDelhi.html')
+		elif(t1=='Mumbai Indians' and t2== 'Kolkata Knight Riders' and venue == 'Mumbai'):
+			return render_template('mumbaiKolkata.html')
+		elif(t1=='Mumbai Indians' and t2== 'Kings XI Punjab' and venue == 'Mumbai'):
+			return render_template('mumbaiPunjab.html')
+		elif(t1=='Mumbai Indians' and t2== 'Rajasthan Royals' and venue == 'Mumbai'):
+			return render_template('mumbaiRajasthan.html')
+		elif(t1=='Mumbai Indians' and t2== 'Royal Challengers Bangalore' and venue == 'Mumbai'):
+			return render_template('mumbaiBangalore.html')
+		elif(t1=='Mumbai Indians' and t2== 'Sunrisers Hyderabad' and venue == 'Mumbai'):
+			return render_template('mumbaiHydrabad.html')
+
+		elif(t1=='Kings XI Punjab' and t2== 'Chennai Super Kings' and venue == 'Chandigarh'):
+			return render_template('punjabChennai.html')
+		elif(t1=='Kings XI Punjab' and t2== 'Delhi Capitals' and venue == 'Chandigarh'):
+			return render_template('punjabDelhi.html')
+		elif(t1=='Kings XI Punjab' and t2== 'Kolkata Knight Riders' and venue == 'Chandigarh'):
+			return render_template('punjabKolkata.html')
+		elif(t1=='Kings XI Punjab' and t2== 'Mumbai Indians' and venue == 'Chandigarh'):
+			return render_template('punjabMumbai.html')
+		elif(t1=='Kings XI Punjab' and t2== 'Rajasthan Royals' and venue == 'Chandigarh'):
+			return render_template('punjabRajasthan.html')
+		elif(t1=='Kings XI Punjab' and t2== 'Royal Challengers Bangalore' and venue == 'Chandigarh'):
+			return render_template('punjabBangalore.html')
+		elif(t1=='Kings XI Punjab' and t2== 'Sunrisers Hyderabad' and venue == 'Chandigarh'):
+			return render_template('punjabHydrabad.html')
+
+		elif(t1=='Rajasthan Royals' and t2== 'Chennai Super Kings' and venue == 'Jaipur'):
+			return render_template('rajasthanChennai.html')
+		elif(t1=='Rajasthan Royals' and t2== 'Delhi Capitals' and venue == 'Jaipur'):
+			return render_template('rajasthanDelhi.html')
+		elif(t1=='Rajasthan Royals' and t2== 'Kolkata Knight Riders' and venue == 'Jaipur'):
+			return render_template('rajasthanKolkata.html')
+		elif(t1=='Rajasthan Royals' and t2== 'Mumbai Indians' and venue == 'Jaipur'):
+			return render_template('rajasthanMumbai.html')
+		elif(t1=='Rajasthan Royals' and t2== 'Kings XI Punjab' and venue == 'Jaipur'):
+			return render_template('rajasthanPunjab.html')
+		elif(t1=='Rajasthan Royals' and t2== 'Royal Challengers Bangalore' and venue == 'Jaipur'):
+			return render_template('rajasthanBangalore.html')
+		elif(t1=='Rajasthan Royals' and t2== 'Sunrisers Hyderabad' and venue == 'Jaipur'):
+			return render_template('rajasthanHydrabad.html')
+
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Chennai Super Kings' and venue == 'Bangalore'):
+			return render_template('bangaloreChennai.html')
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Delhi Capitals' and venue == 'Bangalore'):
+			return render_template('bangaloreDelhi.html')
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Kolkata Knight Riders' and venue == 'Bangalore'):
+			return render_template('bangaloreKolkata.html')
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Mumbai Indians' and venue == 'Bangalore'):
+			return render_template('bangaloreMumbai.html')
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Kings XI Punjab' and venue == 'Bangalore'):
+			return render_template('bangalorePunjab.html')
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Rajasthan Royals' and venue == 'Bangalore'):
+			return render_template('bangaloreRajasthan.html')
+		elif(t1=='Royal Challengers Bangalore' and t2== 'Sunrisers Hyderabad' and venue == 'Bangalore'):
+			return render_template('bangaloreHydrabad.html')
+
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Chennai Super Kings' and venue == 'Hyderabad'):
+			return render_template('hydrabadChennai.html')
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Delhi Capitals' and venue == 'Hyderabad'):
+			return render_template('hydrabadDelhi.html')
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Kolkata Knight Riders' and venue == 'Hyderabad'):
+			return render_template('hydrabadKolkata.html')
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Mumbai Indians' and venue == 'Hyderabad'):
+			return render_template('hydrabadMumbai.html')
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Kings XI Punjab' and venue == 'Hyderabad'):
+			return render_template('hydrabadPunjab.html')
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Rajasthan Royals' and venue == 'Hyderabad'):
+			return render_template('hydrabadRajasthan.html')
+		elif(t1=='Sunrisers Hyderabad' and t2== 'Royal Challengers Bangalore' and venue == 'Hyderabad'):
+			return render_template('hydrabadBangalore.html')		
+		
     
-    return render_template('webTool.html', h2h_wins=h2h_wins,key_players=key_players,tmw_decision=tmw_decision,
+	return render_template('webTool.html', h2h_wins=h2h_wins,key_players=key_players,tmw_decision=tmw_decision,
 							# team1=ipl_teams[t1-1],team2=ipl_teams[t2-1],venue=cities[city-1],total_matches=total_matches,
 							team1=t1,team2=t2,venue=venue,total_matches=total_matches,
     
