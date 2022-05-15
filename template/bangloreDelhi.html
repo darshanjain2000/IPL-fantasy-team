@@ -3,7 +3,7 @@
 {% block subcontent %}
 <div class="card-body text-center">
     <h4 class="card-title">Total Matches Together</h4>
-    <h4 class="card-title">"{{total_matches}}"</h4>
+    <h4 class="card-title">"4"</h4>
 
 </div>
 
@@ -15,11 +15,10 @@
 
             // create data
             var data = [
-                ["KA Pollard", 3],
-                ["RG Sharma", 3],
-                ["SK Raina", 3],
-                ["HH Pandya", 2],
-                ["SA Yadav", 1]
+                ["AR Patel", 1],
+                ["K Rabada", 1],
+                ["S Dhawan", 1],
+                ["A Nortje", 1]
             ];
 
             // create a chart
@@ -50,7 +49,7 @@
     <table style="width:50%; margin-left: 25%;">
         <tr>
             <th>Toss Match Win Count</th>
-            <td>{{toss_match_win_count}}</td>
+            <td>"43"</td>
         </tr>
     </table>
 </div>
@@ -63,8 +62,8 @@
         anychart.onDocumentReady(function () {
           // create pie chart with passed data
           var chart = anychart.pie3d([
-            ['Fielding', 35],
-            ['Batting', 18]
+            ['Fielding', 39],
+            ['Batting', 4]
           ]);
     
           // set chart title text settings
@@ -99,8 +98,14 @@
         anychart.onDocumentReady(function () {
           // create pie chart with passed data
           var chart = anychart.pie3d([
-            ['RG Sharma ', 1765],
-            ['KA Pollard', 1444]
+            ['V Kohli ', 2346],
+            ['AB de Villiers', 1894],
+            ['Sachin Baby', 59],
+            ['Washington Sundar', 58],
+            ['YS Chahal', 9],
+            ['DT Christian', 4],
+            ['Mohammed Siraj', 1],
+            ['NA Saini', 0]
           ]);
     
           // set chart title text settings
@@ -135,8 +140,12 @@
 
             // create data
             var data = [
-                ["JJ Bumrah", 35],
-                ["KA pollard", 28]
+                ["YS Chahal", 51],
+                ["Mohammed Siraj", 9],
+                ["NA Saini", 9],
+                ["Washington Sundar", 6],
+                ["Sachin Baby", 2],
+                ["V Kohli", 1]
             ];
 
             // create a chart
@@ -179,8 +188,11 @@
           // create pie chart with passed data
         //   anychart.theme('darkEarth');
           var chart = anychart.pie3d([
-            ['SK Raina ', 691],
-            ['MS Dhoni', 284]
+                ["SS Iyer", 67],
+                ["PP Shaw", 28],
+                ["RR Pant", 18],
+                ["AR Patel", 4],
+                ["S Dhawan", 0]
           ]);
     
           // set chart title text settings
@@ -215,8 +227,9 @@
 
             // create data
             var data = [
-                ["DJ Bravo", 13],
-                ["RA Jadeja", 11]
+                ["K Rabada", 4],
+                ["AR Patel", 1]
+                
             ];
 
             // create a chart
@@ -258,8 +271,8 @@
 
             // create data
             var data = [
-                ["Mumbai Indians", 7],
-                ["Chennai Super Kings", 12]
+                ["Delhi Capitals", 4],
+                ["Royal Challengers Bangalore", 0]
             ];
 
             // create a chart
@@ -296,111 +309,27 @@
 
 <div class="card-body text-center">
     <h4 class="card-title">Run Rate</h4>
-    <h4 class="card-title">"{{runrate}}"</h4>
+    <h4 class="card-title">"8.54"</h4>
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">{{team1}} win percentage at {{venue}}</h4>
-    <h4 class="card-title">"{{team_pc2}}"</h4>
+    <h4 class="card-title">"48"</h4>
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">{{team2}} win percentage at {{venue}}</h4>
-    <h4 class="card-title">"{{team_pc2}}"</h4>
+    <h4 class="card-title">"100"</h4>
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">Run Rate of {{team1}}</h4>
-    <h4 class="card-title">"{{rr_team}}"</h4>
+    <h4 class="card-title">"7.9"</h4>
 </div>
 
 <div class="card-body text-center">
     <h4 class="card-title">Run Rate of {{team2}}</h4>
-    <h4 class="card-title">"{{rr_team2}}"</h4>
+    <h4 class="card-title">"7.6"</h4>
 </div>
 
 {% endblock %}
-
-<!-- <!DOCTYPE html>
-<html lang="en" class="no-js">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TOOL</title>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="dist/css/style.css"> --
-    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
-    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-</head>
-
-<body class="is-boxed has-animations">
-    <div class="body-wrap">
-        <header class="site-header">
-            <div class="container">
-                <div class="site-header-inner">
-                    <div class="brand header-brand">
-                        <h1 class="m-0">
-                            <a href="#">
-                                <!-- <img class="header-logo-image" src="dist/images/logo.svg" alt="Logo"> --
-                                <img src="{{url_for('static',filename = 'images/logo.svg')}}" alt="Logo">
-                            </a>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <main>
-            <table style="width:50%; margin-left: 25%;">
-                <tr>
-                    <th>Total Matches</th>
-                    <td>{{total_matches}}</td>
-                </tr>
-                <tr>
-                    <th>Head to Head wins</th>
-                    <td>{% for table in tables1 %}
-                        {{titles1[loop.index]}}
-                        {{ table|safe }}
-                        {% endfor %}</td>
-                </tr>
-                <tr>
-                    <th>Key Players</th>
-                    <td><td>{% for table in tables2 %}
-                        {{titles2[loop.index]}}
-                        {{ table|safe }}
-                        {% endfor %}</td></td>
-                </tr>
-                <tr>
-                    <th>Toss Match Win Count</th>
-                    <td>{{toss_match_win_count}}</td>
-                </tr>
-                <tr>
-                    <th>Toss Match Win Decision</th>
-                    <td>{% for table in tables3 %}
-                        {{titles3[loop.index]}}
-                        {{ table|safe }}
-                        {% endfor %}</td>
-                </tr>
-                <tr>
-                    <th>Match Win Decision</th>
-                    <td>{% for table in tables4 %}
-                        {{titles4[loop.index]}}
-                        {{ table|safe }}
-                        {% endfor %}</td>
-                </tr>
-                <tr>
-                    <th>Run Rate</th>
-                    <td>{{runrate}}</td>
-                </tr>
-            </table>
-        </main>
-    </div>
-
-    <!-- <script src="dist/js/main.min.js"></script> --
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-</body>
-
-</html> -->

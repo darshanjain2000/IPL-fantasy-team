@@ -392,8 +392,52 @@
                         {% endfor %}</td>
                 </tr>
                 <tr>
+                    <th>Team1 top batsman</th>
+                    <td>{% for table in tables5 %}
+                        {{titles5[loop.index]}}
+                        {{ table|safe }}
+                        {% endfor %}</td>
+                </tr>
+                <tr>
+                    <th>Team1 top bowler</th>
+                    <td>{% for table in tables6 %}
+                        {{titles6[loop.index]}}
+                        {{ table|safe }}
+                        {% endfor %}</td>
+                </tr>
+                <tr>
+                    <th>Team2 top batsman</th>
+                    <td>{% for table in tables7 %}
+                        {{titles7[loop.index]}}
+                        {{ table|safe }}
+                        {% endfor %}</td>
+                </tr>
+                <tr>
+                    <th>Team2 top bowler</th>
+                    <td>{% for table in tables8 %}
+                        {{titles8[loop.index]}}
+                        {{ table|safe }}
+                        {% endfor %}</td>
+                </tr>
+                <tr>
                     <th>Run Rate</th>
                     <td>{{runrate}}</td>
+                </tr>
+                <tr>
+                    <th>Run Rate team1</th>
+                    <td>{{rr_team}}</td>
+                </tr>
+                <tr>
+                    <th>Run Rate team2</th>
+                    <td>{{rr_team2}}</td>
+                </tr>
+                <tr>
+                    <th>Team1 winning percentage</th>
+                    <td>{{team_pc}}</td>
+                </tr>
+                <tr>
+                    <th>Team2 winning percentage</th>
+                    <td>{{team_pc2}}</td>
                 </tr>
             </table>
         </main>
